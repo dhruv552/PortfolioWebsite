@@ -59,9 +59,9 @@ const ProjectCard = ({
   };
 
   return (
-    <Card className="w-full h-[580px] bg-dark-card border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-accent-blue/20 hover:border-accent-blue/50 flex flex-col">
+    <Card className="w-full h-[580px] bg-dark-card border-gray-600 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-accent-blue/20 hover:border-accent-blue/50 flex flex-col rounded-xl border-2">
       {image && (
-        <div className="relative h-48 overflow-hidden flex-shrink-0">
+        <div className="relative h-48 overflow-hidden flex-shrink-0 rounded-t-xl">
           <img
             src={image}
             alt={title}
@@ -69,9 +69,10 @@ const ProjectCard = ({
           />
         </div>
       )}
-      <div className="flex flex-col flex-1">
-        <CardHeader className="flex-shrink-0 h-32 flex flex-col justify-between p-4">
-          <div className="flex justify-between items-start gap-2">
+      <div className="flex flex-col flex-1 p-4">
+        {/* Header Section */}
+        <div className="flex-shrink-0 mb-3">
+          <div className="flex justify-between items-start gap-2 mb-2">
             <CardTitle className="text-lg font-bold text-text-light leading-tight line-clamp-2">
               {title}
             </CardTitle>
@@ -79,29 +80,33 @@ const ProjectCard = ({
               {date}
             </span>
           </div>
-          <CardDescription className="text-text-muted text-sm leading-relaxed h-16 overflow-hidden line-clamp-3">
+          <CardDescription className="text-text-muted text-sm leading-snug line-clamp-3">
             {description}
           </CardDescription>
-        </CardHeader>
-        <CardContent className="flex-1 p-4 pt-0 flex flex-col justify-center min-h-[80px]">
-          <div className="flex flex-wrap gap-1.5 justify-start">
+        </div>
+
+        {/* Tech Stack Section */}
+        <div className="flex-1 flex flex-col justify-center min-h-[60px] mb-4">
+          <div className="flex flex-wrap gap-2">
             {techStack.map((tech, index) => (
               <Badge
                 key={index}
                 variant="secondary"
-                className={`${tech.color || getBadgeColor(tech.name)} text-white text-xs px-2 py-1`}
+                className={`${tech.color || getBadgeColor(tech.name)} text-white text-xs px-3 py-1.5 rounded-full shadow-sm hover:shadow-md transition-all duration-200 hover:scale-105 border-0 font-medium`}
               >
                 {tech.name}
               </Badge>
             ))}
           </div>
-        </CardContent>
-        <CardFooter className="flex-shrink-0 p-4 pt-0">
-          <div className="flex gap-2 w-full">
+        </div>
+
+        {/* Buttons Section */}
+        <div className="flex-shrink-0 mt-auto">
+          <div className="flex gap-3 w-full">
             <Button
               variant="outline"
               size="sm"
-              className="flex items-center gap-2 border-gray-600 text-text-light hover:bg-dark-surface hover:border-accent-blue flex-1"
+              className="flex items-center gap-2 border-2 border-gray-500 text-text-light hover:bg-dark-surface hover:border-accent-blue flex-1 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/25 hover:scale-105 h-11 font-medium"
               asChild
             >
               <a href={githubUrl} target="_blank" rel="noopener noreferrer">
@@ -113,7 +118,7 @@ const ProjectCard = ({
               <Button
                 variant="default"
                 size="sm"
-                className="flex items-center gap-2 bg-accent-cyan hover:bg-accent-cyan/90 text-dark-bg flex-1"
+                className="flex items-center gap-2 bg-accent-cyan hover:bg-accent-cyan/90 text-dark-bg flex-1 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-accent-cyan/25 hover:scale-105 h-11 font-medium"
                 asChild
               >
                 <a href={liveUrl} target="_blank" rel="noopener noreferrer">
@@ -123,7 +128,7 @@ const ProjectCard = ({
               </Button>
             )}
           </div>
-        </CardFooter>
+        </div>
       </div>
     </Card>
   );

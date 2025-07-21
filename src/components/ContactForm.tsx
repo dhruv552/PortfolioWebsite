@@ -121,11 +121,13 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
 
   return (
     <Card
-      className={`w-full max-w-md mx-auto bg-background shadow-lg ${className}`}
+      className={`w-full max-w-md mx-auto bg-dark-card border-2 border-gray-600 shadow-xl hover:shadow-2xl hover:shadow-accent-blue/20 hover:border-accent-blue/50 transition-all duration-300 rounded-xl ${className}`}
     >
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold">Get In Touch</CardTitle>
-        <CardDescription>
+      <CardHeader className="rounded-t-xl">
+        <CardTitle className="text-2xl font-bold text-text-light">
+          Get In Touch
+        </CardTitle>
+        <CardDescription className="text-text-muted">
           Fill out the form below to send me a message.
         </CardDescription>
       </CardHeader>
@@ -137,9 +139,13 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel className="text-text-light">Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your name" {...field} />
+                    <Input
+                      placeholder="Your name"
+                      className="rounded-xl border-2 border-gray-600 bg-dark-surface text-text-light placeholder:text-text-muted focus:border-accent-blue transition-all duration-200"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -150,9 +156,13 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="text-text-light">Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="your.email@example.com" {...field} />
+                    <Input
+                      placeholder="your.email@example.com"
+                      className="rounded-xl border-2 border-gray-600 bg-dark-surface text-text-light placeholder:text-text-muted focus:border-accent-blue transition-all duration-200"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -163,9 +173,13 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
               name="subject"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Subject</FormLabel>
+                  <FormLabel className="text-text-light">Subject</FormLabel>
                   <FormControl>
-                    <Input placeholder="What is this regarding?" {...field} />
+                    <Input
+                      placeholder="What is this regarding?"
+                      className="rounded-xl border-2 border-gray-600 bg-dark-surface text-text-light placeholder:text-text-muted focus:border-accent-blue transition-all duration-200"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -176,11 +190,11 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel className="text-text-light">Message</FormLabel>
                   <FormControl>
                     <Textarea
                       placeholder="Your message here..."
-                      className="min-h-[120px]"
+                      className="min-h-[120px] rounded-xl border-2 border-gray-600 bg-dark-surface text-text-light placeholder:text-text-muted focus:border-accent-blue transition-all duration-200 resize-none"
                       {...field}
                     />
                   </FormControl>
@@ -190,7 +204,7 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
             />
 
             {submitStatus === "success" && (
-              <Alert className="bg-green-50 border-green-200 text-green-800">
+              <Alert className="bg-green-900/20 border-2 border-green-500/50 text-green-300 rounded-xl">
                 <AlertDescription>
                   Thank you for your message! I'll get back to you soon.
                 </AlertDescription>
@@ -198,7 +212,7 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
             )}
 
             {submitStatus === "error" && (
-              <Alert className="bg-red-50 border-red-200 text-red-800">
+              <Alert className="bg-red-900/20 border-2 border-red-500/50 text-red-300 rounded-xl">
                 <AlertDescription>
                   There was an error sending your message. Please try again.
                 </AlertDescription>
@@ -207,7 +221,7 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
 
             <Button
               type="submit"
-              className="w-full bg-primary hover:bg-primary/90"
+              className="w-full bg-accent-blue hover:bg-accent-blue/90 text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/25 hover:scale-105 h-12 font-medium"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Sending..." : "Send Message"}
@@ -215,7 +229,7 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
           </form>
         </Form>
       </CardContent>
-      <CardFooter className="flex flex-col space-y-4">
+      <CardFooter className="flex flex-col space-y-4 rounded-b-xl">
         <div className="flex justify-center space-x-4">
           <TooltipProvider>
             {socialLinks.map((link) => (
@@ -225,7 +239,7 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full hover:bg-muted transition-colors"
+                    className="p-3 rounded-full hover:bg-gray-700 transition-all duration-300 hover:scale-110 border-2 border-gray-600 hover:border-accent-blue"
                     aria-label={link.name}
                   >
                     {link.icon}
@@ -241,7 +255,7 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
 
         <Button
           variant="outline"
-          className="flex items-center gap-2 w-full border-primary text-primary hover:bg-primary/10"
+          className="flex items-center gap-2 w-full border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-dark-bg rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-accent-cyan/25 hover:scale-105 h-12 font-medium"
           onClick={() =>
             window.open(
               "https://drive.google.com/file/d/1sLN8OqXc3MSPbohS8IUN0kD0lcXNa7nf/view?usp=drive_link",
@@ -249,7 +263,7 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
             )
           }
         >
-          <Download className="h-4 w-4" />
+          <Download className="h-5 w-5" />
           Download Resume
         </Button>
       </CardFooter>

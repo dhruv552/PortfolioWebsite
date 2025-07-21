@@ -34,17 +34,21 @@ function Home() {
     {
       title: "ShadowShield",
       description:
-        "ShadowShield is a blockchain-powered, self-defending cybersecurity system that ensures secure, traceable, and decentralized data control. It detects and blocks threats in real time, making it ideal for protecting critical civic and government data",
+        "ShadowShield is a decentralized, self-defending data system built for secure, traceable, and temporary data communication. It integrates AES/RSA encryption, Shamir's Secret Sharing, and AI-driven threat detection to ensure privacy, real-time protection, and smart self-destruction. Developed using React, Node.js, and TypeScript, the project won the \"Best Civic Auth Use\" award at JLU Bhopal in April 2025.",
       techStack: [
-        { name: "Python" },
-        { name: "TensorFlow" },
-        { name: "Flask" },
-        { name: "PostgreSQL" }
+        { name: "TypeScript" },
+        { name: "React" },
+        { name: "Node.js" },
+        { name: "AES/RSA" },
+        { name: "Shamir's Secret Sharing", color: "bg-purple-600" },
+        { name: "AI/ML" },
+        { name: "Cybersecurity", color: "bg-red-600" },
+        { name: "Blockchain", color: "bg-orange-600" }
       ],
       githubUrl: "https://github.com/Ritik-Malviya/ShadowShield",
       image:
         "https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=400&q=80",
-      date: "Feb 2025",
+      date: "Apr 2025",
     },
   ];
 
@@ -185,7 +189,7 @@ function Home() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  className="bg-accent-blue hover:bg-accent-blue/90 text-white"
+                  className="bg-accent-blue hover:bg-accent-blue/90 text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/25 hover:scale-105"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   <Mail className="w-4 h-4 mr-2" />
@@ -194,7 +198,7 @@ function Home() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-dark-bg"
+                  className="border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-dark-bg rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-accent-cyan/25 hover:scale-105"
                   onClick={() => window.open('https://drive.google.com/file/d/1sLN8OqXc3MSPbohS8IUN0kD0lcXNa7nf/view?usp=drive_link', '_blank')}
                 >
                   <Download className="w-4 h-4 mr-2" />
@@ -301,13 +305,13 @@ function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="bg-dark-card border-gray-700 hover:shadow-xl hover:shadow-accent-blue/20 transition-all duration-300 hover:border-accent-blue/50">
+                <Card className="bg-dark-card border-gray-700 hover:shadow-xl hover:shadow-accent-blue/20 transition-all duration-300 hover:border-accent-blue/50 rounded-xl border-2">
                   <CardHeader>
                     <div className="flex justify-between items-start">
                       <CardTitle className="text-accent-cyan text-left leading-relaxed">
                         {achievement.title}
                       </CardTitle>
-                      <Badge variant="outline">{achievement.date}</Badge>
+                      <Badge variant="outline" className="rounded-full">{achievement.date}</Badge>
                     </div>
                     <CardDescription className="text-left">
                       {achievement.subtitle}
@@ -320,7 +324,7 @@ function Home() {
                         <Button
                           variant="outline"
                           size="sm"
-                          className="border-accent-blue text-accent-blue hover:bg-accent-blue hover:text-white"
+                          className="border-accent-blue text-accent-blue hover:bg-accent-blue hover:text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/25 hover:scale-105"
                           onClick={() => window.open(achievement.link, '_blank')}
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />

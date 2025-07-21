@@ -147,12 +147,14 @@ const SkillsTimeline = ({
                 Certifications
               </h3>
               <div className="space-y-4">
-                <Card>
+                <Card className="rounded-xl border-2 border-gray-600 hover:border-accent-blue/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/20">
                   <CardContent className="p-4">
                     <div className="flex flex-col space-y-1">
                       <div className="flex justify-between items-start">
                         <h4 className="font-semibold">AWS Academy Graduate</h4>
-                        <Badge variant="outline">July 2025</Badge>
+                        <Badge variant="outline" className="rounded-full">
+                          July 2025
+                        </Badge>
                       </div>
                       <p className="text-sm text-muted-foreground">
                         AWS Academy Cloud Foundations
@@ -161,7 +163,7 @@ const SkillsTimeline = ({
                         href="https://www.credly.com/badges/210bc8cc-8f3f-4c84-84f7-4d829fae0f9d/public_url"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-primary hover:underline mt-1"
+                        className="text-sm text-primary hover:underline mt-1 transition-colors duration-200"
                       >
                         View Certificate
                       </a>
@@ -169,14 +171,16 @@ const SkillsTimeline = ({
                   </CardContent>
                 </Card>
 
-                <Card>
+                <Card className="rounded-xl border-2 border-gray-600 hover:border-accent-blue/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/20">
                   <CardContent className="p-4">
                     <div className="flex flex-col space-y-1">
                       <div className="flex justify-between items-start">
                         <h4 className="font-semibold">
                           Python Fundamentals and Programming
                         </h4>
-                        <Badge variant="outline">Nov 2024 - Feb 2025</Badge>
+                        <Badge variant="outline" className="rounded-full">
+                          Nov 2024 - Feb 2025
+                        </Badge>
                       </div>
                       <p className="text-sm text-muted-foreground">
                         Onwingspan (Parts 1-2)
@@ -185,7 +189,7 @@ const SkillsTimeline = ({
                         href="https://drive.google.com/drive/folders/1vDpFXWH7jCc5DVuLJhW8VBZeHxEphC1F?usp=drive_link"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-primary hover:underline mt-1"
+                        className="text-sm text-primary hover:underline mt-1 transition-colors duration-200"
                       >
                         View Certificate
                       </a>
@@ -213,7 +217,7 @@ const SkillsTimeline = ({
                     )}
                   </div>
 
-                  <Card className="overflow-hidden">
+                  <Card className="overflow-hidden rounded-xl border-2 border-gray-600 hover:border-accent-blue/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/20">
                     <CardContent className="p-5">
                       <div className="flex flex-col space-y-2">
                         <div className="flex items-center justify-between">
@@ -224,6 +228,7 @@ const SkillsTimeline = ({
                                 ? "secondary"
                                 : "default"
                             }
+                            className="rounded-full"
                           >
                             {item.type === "education"
                               ? "Education"
@@ -252,7 +257,7 @@ const SkillsTimeline = ({
                             href={item.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm text-primary hover:underline"
+                            className="text-sm text-primary hover:underline transition-colors duration-200 inline-flex items-center gap-1 mt-2"
                           >
                             View Details
                           </a>
