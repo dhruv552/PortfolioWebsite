@@ -59,7 +59,7 @@ const ProjectCard = ({
   };
 
   return (
-    <Card className="w-full h-[520px] bg-dark-card border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-accent-blue/20 hover:border-accent-blue/50 flex flex-col">
+    <Card className="w-full h-[580px] bg-dark-card border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-accent-blue/20 hover:border-accent-blue/50 flex flex-col">
       {image && (
         <div className="relative h-48 overflow-hidden flex-shrink-0">
           <img
@@ -69,22 +69,22 @@ const ProjectCard = ({
           />
         </div>
       )}
-      <div className="flex flex-col flex-1 p-0">
-        <CardHeader className="pb-3">
+      <div className="flex flex-col flex-1">
+        <CardHeader className="flex-shrink-0 h-32 flex flex-col justify-between p-4">
           <div className="flex justify-between items-start gap-2">
-            <CardTitle className="text-xl font-bold text-text-light leading-tight">
+            <CardTitle className="text-lg font-bold text-text-light leading-tight line-clamp-2">
               {title}
             </CardTitle>
-            <span className="text-sm text-text-muted whitespace-nowrap">
+            <span className="text-sm text-text-muted whitespace-nowrap flex-shrink-0">
               {date}
             </span>
           </div>
-          <CardDescription className="mt-2 text-text-muted text-sm leading-relaxed h-[60px] overflow-hidden">
+          <CardDescription className="text-text-muted text-sm leading-relaxed h-16 overflow-hidden line-clamp-3">
             {description}
           </CardDescription>
         </CardHeader>
-        <CardContent className="flex-1 pt-0 pb-3">
-          <div className="flex flex-wrap gap-1.5">
+        <CardContent className="flex-1 p-4 pt-0 flex flex-col justify-center min-h-[80px]">
+          <div className="flex flex-wrap gap-1.5 justify-start">
             {techStack.map((tech, index) => (
               <Badge
                 key={index}
@@ -96,7 +96,7 @@ const ProjectCard = ({
             ))}
           </div>
         </CardContent>
-        <CardFooter className="pt-0 mt-auto">
+        <CardFooter className="flex-shrink-0 p-4 pt-0">
           <div className="flex gap-2 w-full">
             <Button
               variant="outline"
