@@ -34,7 +34,7 @@ function Home() {
     {
       title: "ShadowShield",
       description:
-        "Advanced cybersecurity tool for real-time threat detection and system protection.",
+        "ShadowShield is a blockchain-powered, self-defending cybersecurity system that ensures secure, traceable, and decentralized data control. It detects and blocks threats in real time, making it ideal for protecting critical civic and government data",
       techStack: [
         { name: "Python" },
         { name: "TensorFlow" },

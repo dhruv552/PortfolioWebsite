@@ -40,7 +40,9 @@
             "label": "Git Status",
             "type": "shell",
             "command": "git",
-            "args": ["status"],
+            "args": [
+                "status"
+            ],
             "group": "test",
             "presentation": {
                 "echo": true,
