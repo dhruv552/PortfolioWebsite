@@ -1,29 +1,69 @@
 # Dhruv Agrawal - Portfolio Website
 
-A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS, showcasing my work in sustainable technology solutions and web development.
+A modern, responsive portfolio website showcasing my work as a web developer specializing in sustainable technology solutions. Built with React, TypeScript, and featuring a dark theme optimized for performance and accessibility.
 
-## 🚀 Features
+## 🌟 Features
 
-- **Responsive Design**: Optimized for all devices with mobile-first approach
-- **Modern Tech Stack**: Built with React 18, TypeScript, and Vite
-- **Beautiful UI**: Custom design system using Shadcn/ui components
-- **Smooth Animations**: Framer Motion for engaging user interactions
-- **Functional Contact Form**: EmailJS integration for real email submissions
-- **Performance Optimized**: Code splitting, lazy loading, and optimized builds
-- **SEO Ready**: Comprehensive meta tags and semantic HTML structure
+- **Modern Design**: Clean, professional dark theme with accent colors
+- **Responsive Layout**: Fully responsive design that works on all devices
+- **Interactive Animations**: Smooth animations using Framer Motion
+- **Contact Form**: Functional contact form integrated with EmailJS
+- **Email Integration**: Direct email functionality with EmailJS
+- **Performance Optimized**: Built with Vite for fast development and production builds
+- **Type Safe**: Full TypeScript implementation
+- **Component Library**: Built with shadcn/ui components and Radix UI primitives
+- **SEO Friendly**: Proper meta tags and semantic HTML structure
+- **Error Handling**: Comprehensive error boundary implementation
 
-## 🛠️ Tech Stack
+## 🚀 Tech Stack
 
-- **Frontend**: React 18, TypeScript, Tailwind CSS
-- **Build Tool**: Vite
-- **UI Components**: Shadcn/ui (Radix UI primitives)
-- **Animations**: Framer Motion
-- **Forms**: React Hook Form with Zod validation
-- **Email Service**: EmailJS
-- **Icons**: Lucide React
-- **Deployment**: Netlify/Vercel ready
+### Frontend
+- **React 18** - Modern React with hooks and functional components
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool and development server
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Animation library
 
-## 📦 Installation
+### UI Components
+- **shadcn/ui** - Modern component library
+- **Radix UI** - Accessible component primitives
+- **Lucide React** - Beautiful icon library
+
+### Form Handling
+- **React Hook Form** - Performant form library
+- **Zod** - TypeScript-first schema validation
+- **@hookform/resolvers** - Validation integration
+
+### Email Service
+- **EmailJS** - Client-side email sending
+
+### Development Tools
+- **ESLint** - Code linting
+- **PostCSS** - CSS processing
+- **Autoprefixer** - CSS vendor prefixing
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── ui/                 # Reusable UI components (shadcn/ui)
+│   ├── ContactForm.tsx     # Contact form component
+│   ├── ErrorBoundary.tsx   # Error boundary wrapper
+│   ├── home.tsx           # Main home page component
+│   ├── ProjectCard.tsx    # Project showcase card
+│   └── SkillsTimeline.tsx # Skills and experience timeline
+├── lib/
+│   ├── emailService.ts    # EmailJS configuration and service
+│   └── utils.ts          # Utility functions
+├── stories/              # Storybook stories for components
+├── types/               # TypeScript type definitions
+├── App.tsx             # Main app component
+├── main.tsx           # App entry point
+└── index.css         # Global styles and Tailwind imports
+```
+
+## 🛠️ Installation & Setup
 
 1. **Clone the repository**
    ```bash
@@ -36,97 +76,138 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
    npm install
    ```
 
-3. **Set up environment variables**
-   ```bash
-   cp .env.example .env
-   ```
-   Fill in your EmailJS credentials and other configuration values.
+3. **Environment Setup**
+   - The EmailJS configuration is already set up in `src/lib/emailService.ts`
+   - Update the EmailJS credentials if needed for your own deployment
 
 4. **Start development server**
    ```bash
    npm run dev
    ```
 
-## 🔧 Configuration
-
-### EmailJS Setup
-1. Create an account at [EmailJS](https://emailjs.com)
-2. Create an email service and template
-3. Add your credentials to `.env`:
-   ```
-   VITE_EMAILJS_SERVICE_ID=your_service_id
-   VITE_EMAILJS_TEMPLATE_ID=your_template_id
-   VITE_EMAILJS_PUBLIC_KEY=your_public_key
+5. **Build for production**
+   ```bash
+   npm run build
    ```
 
-### Customization
-- **Personal Info**: Update content in `src/components/home.tsx`
-- **Projects**: Modify the `projects` array in the same file
-- **Skills**: Update `SkillsTimeline.tsx` component
-- **Styling**: Customize colors in `tailwind.config.js` and `src/index.css`
+## 📧 Email Configuration
 
-## 📁 Project Structure
+The contact form uses EmailJS for sending emails. The configuration is located in `src/lib/emailService.ts`:
 
+- **Service ID**: `default_service`
+- **Template ID**: `template_k161vic`
+- **Public Key**: `a5o6ufciw_3QPffUD`
+
+## 🎨 Color Scheme
+
+The website uses a carefully crafted dark theme with accent colors:
+
+- **Primary Background**: Dark gradients (dark-bg, dark-surface, dark-card)
+- **Text Colors**: Light text with muted variants
+- **Accent Colors**:
+  - Blue (`accent-blue`) - Primary actions and highlights
+  - Cyan (`accent-cyan`) - Secondary highlights
+  - Emerald (`accent-emerald`) - Success states and nature theme
+
+## 📱 Responsive Design
+
+The website is fully responsive with breakpoints for:
+- Mobile devices (< 768px)
+- Tablets (768px - 1024px)
+- Desktops (> 1024px)
+
+## 🔧 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run type-check` - Run TypeScript type checking
+- `npm run lint` - Run ESLint
+- `npm run lint:fix` - Fix ESLint issues
+- `npm run clean` - Clean build directory
+
+## 🌐 Deployment
+
+The website is optimized for deployment on:
+- **Netlify** (recommended) - Configuration included in `netlify.toml`
+- **Vercel**
+- **GitHub Pages**
+- Any static hosting service
+
+### Netlify Deployment
+
+The project includes a `netlify.toml` configuration file for easy deployment:
+
+```toml
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 ```
-src/
-├── components/          # React components
-│   ├── ui/             # Reusable UI components
-│   ├── ContactForm.tsx # Contact form with EmailJS
-│   ├── ProjectCard.tsx # Project showcase cards
-│   ├── SkillsTimeline.tsx # Skills and experience timeline
-│   └── home.tsx        # Main homepage component
-├── lib/                # Utility functions
-├── types/              # TypeScript type definitions
-└── stories/            # Storybook stories (optional)
-```
 
-## 🚀 Deployment
+## 📊 Performance Features
 
-### Netlify
-1. Connect your GitHub repository
-2. Set build command: `npm run build`
-3. Set publish directory: `dist`
-4. Add environment variables in Netlify dashboard
+- **Code Splitting**: Lazy loading with React.Suspense
+- **Image Optimization**: Optimized images and lazy loading
+- **Bundle Analysis**: Built-in bundle analyzer
+- **Error Boundaries**: Graceful error handling
+- **TypeScript**: Compile-time error catching
 
-### Vercel
-1. Import your GitHub repository
-2. Vercel will auto-detect Vite configuration
-3. Add environment variables in project settings
+## 🎯 SEO & Accessibility
 
-## 📈 Performance
+- Semantic HTML structure
+- Proper heading hierarchy
+- Alt text for images
+- ARIA labels where needed
+- Keyboard navigation support
+- Screen reader compatibility
 
-- **Lighthouse Score**: 95+ on all metrics
-- **Code Splitting**: Automatic vendor and UI library chunking
-- **Asset Optimization**: Images and fonts optimized for web
-- **Bundle Analysis**: Use `npm run build` to analyze bundle size
+## 📞 Contact Information
 
-## 🎨 Design System
+- **Email**: dhruvagrawal552@gmail.com
+- **Phone**: +91 9752476691
+- **LinkedIn**: [linkedin.com/in/dhruvagrawal013](https://linkedin.com/in/dhruvagrawal013)
+- **GitHub**: [github.com/dhruv552](https://github.com/dhruv552)
+- **Portfolio**: [linktr.ee/Dhruvagrawal013](https://linktr.ee/Dhruvagrawal013)
 
-This project uses a custom design system built on:
-- **Colors**: Dark theme with cyan/blue accent palette
-- **Typography**: Modern font stack with proper hierarchy
-- **Spacing**: Consistent spacing scale using Tailwind
-- **Components**: Reusable components with Shadcn/ui
+## 🏆 Featured Projects
+
+### SustainAride
+A sustainable transportation platform connecting eco-conscious riders with green mobility solutions.
+- **Tech Stack**: React, Node.js, MongoDB, Express
+- **Repository**: [github.com/dhruv552/SustainAride](https://github.com/dhruv552/SustainAride)
+
+### ShadowShield
+Advanced cybersecurity tool for real-time threat detection and system protection.
+- **Tech Stack**: Python, TensorFlow, Flask, PostgreSQL
+- **Repository**: [github.com/Ritik-Malviya/ShadowShield](https://github.com/Ritik-Malviya/ShadowShield)
+
+## 🏅 Achievements
+
+- **Winner**: Best Civic Auth Use, JLU Bhopal Hackathon (6th Position) - Rs.7,000 award
+- **Finalist**: SKITECH INNOTHON 2.0, Indore - Gamified carbon footprint tracker
+- **In Progress**: Developing SustainAride for upcoming innovation events
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/new-feature`
-3. Commit changes: `git commit -am 'Add new feature'`
-4. Push to branch: `git push origin feature/new-feature`
-5. Submit a pull request
+This is a personal portfolio website, but if you find any bugs or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 📞 Contact
+## 🙏 Acknowledgments
 
-- **Email**: dhruvagrawal552@gmail.com
-- **LinkedIn**: [dhruvagrawal013](https://linkedin.com/in/dhruvagrawal013)
-- **GitHub**: [dhruv552](https://github.com/dhruv552)
-- **Portfolio**: [dhruvagrawal.dev](https://dhruvagrawal.dev)
+- **shadcn/ui** for the excellent component library
+- **Radix UI** for accessible component primitives
+- **Tailwind CSS** for the utility-first CSS framework
+- **Framer Motion** for smooth animations
+- **EmailJS** for email functionality
 
 ---
 
-Built with ❤️ by Dhruv Agrawal
+*Built with ❤️ and sustainable practices in mind by Dhruv Agrawal*

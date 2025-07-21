@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -30,6 +30,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { initializeEmailJS, sendEmail } from "@/lib/emailService";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -64,33 +65,27 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
     },
   });
 
+  // Initialize EmailJS when component mounts
+  useEffect(() => {
+    initializeEmailJS();
+  }, []);
+
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
     try {
-      // Use Netlify Forms to send email
-      const formData = new FormData();
-      formData.append('form-name', 'contact');
-      formData.append('name', data.name);
-      formData.append('email', data.email);
-      formData.append('subject', data.subject);
-      formData.append('message', data.message);
-
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
+      await sendEmail({
+        name: data.name,
+        email: data.email,
+        subject: data.subject,
+        message: data.message,
       });
 
-      if (response.ok) {
-        setSubmitStatus("success");
-        form.reset();
-      } else {
-        throw new Error('Form submission failed');
-      }
+      setSubmitStatus("success");
+      form.reset();
     } catch (error) {
-      console.error("Form submission error:", error);
+      console.error("Email sending error:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -113,7 +108,7 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
     {
       name: "Email",
       icon: <Mail className="h-5 w-5" />,
-      href: "mailto:dhruvagrawal552@email.com",
+      href: "mailto:dhruvagrawal552@gmail.com",
       tooltip: "Send me an email",
     },
     {

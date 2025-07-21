@@ -431,7 +431,7 @@ function Home() {
       <footer className="bg-dark-bg border-t border-gray-800 py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-text-muted">
-            © 2024 Dhruv Agrawal. Built with React, TypeScript, and sustainable
+            © 2025 Dhruv Agrawal. Built with React, TypeScript, and sustainable
             practices in mind.
           </p>
         </div>
