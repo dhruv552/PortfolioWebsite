@@ -242,12 +242,15 @@ export default function ContactForm({ className = "" }: ContactFormProps) {
         <Button
           variant="outline"
           className="flex items-center gap-2 w-full border-primary text-primary hover:bg-primary/10"
-          asChild
+          onClick={() =>
+            window.open(
+              "https://drive.google.com/file/d/1sLN8OqXc3MSPbohS8IUN0kD0lcXNa7nf/view?usp=drive_link",
+              "_blank"
+            )
+          }
         >
-          <a href="/resume.pdf" download>
-            <Download className="h-4 w-4" />
-            Download Resume
-          </a>
+          <Download className="h-4 w-4" />
+          Download Resume
         </Button>
       </CardFooter>
     </Card>

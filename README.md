@@ -211,3 +211,9 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 *Built with ❤️ and sustainable practices in mind by Dhruv Agrawal*
+
+# Portfolio Website
+
+🚀 **Now deployed on Netlify with auto-deployment enabled!**
+
+This portfolio website automatically deploys to Netlify whenever changes are pushed to the main branch.
