@@ -1,120 +1,118 @@
-# 🚀 GitHub Auto-Sync Setup
+# GitHub Auto-Sync Setup Guide
 
-This document provides you with easy commands to automatically sync your portfolio changes to GitHub.
+This guide provides multiple ways to automatically sync your Portfolio Website changes to GitHub.
 
-## Quick Commands for Daily Use
+## 🚀 Quick Setup
 
-### 1. **Quick Sync** (Most Common)
-```bash
-git add . && git commit -m "Update portfolio content" && git push origin main
-```
+### Option 1: Auto-Sync (Recommended for Development)
+**Automatically watches for changes and pushes them every 30 seconds**
 
-### 2. **Sync with Custom Message**
-```bash
-git add . && git commit -m "Your custom message here" && git push origin main
-```
+1. **Start Auto-Sync:**
+   ```powershell
+   .\auto-sync.ps1
+   ```
+   
+2. **Or use VS Code:**
+   - Press `Ctrl+Shift+P`
+   - Type "Tasks: Run Task"
+   - Select "Start Auto-Sync"
 
-### 3. **Check Status Before Sync**
-```bash
-git status
-```
+3. **Stop Auto-Sync:**
+   - Press `Ctrl+C` in the terminal
 
-## Automated Scripts
+### Option 2: Quick Manual Sync
+**One-click sync for immediate updates**
 
-### Windows PowerShell Script (Recommended)
-Create a file called `sync.ps1` in your project root with the script below, then run:
+1. **Double-click:** `quick-sync.bat`
+2. **Or use VS Code:**
+   - Press `Ctrl+Shift+P`
+   - Type "Tasks: Run Task" 
+   - Select "Quick Sync to GitHub"
+
+### Option 3: VS Code Integration
+**Built into your editor workflow**
+
+Available VS Code tasks:
+- **Quick Sync to GitHub** - Instant sync with auto-generated commit message
+- **Start Auto-Sync** - Begin automatic watching
+- **Custom Commit & Push** - Sync with custom commit message
+- **Git Status** - Check current changes
+
+## 🛠️ How It Works
+
+### Auto-Sync Features:
+- ✅ Watches for file changes every 30 seconds
+- ✅ Automatically adds, commits, and pushes changes
+- ✅ Uses timestamped commit messages
+- ✅ Error handling and retry logic
+- ✅ Visual feedback with emojis and colors
+
+### Quick-Sync Features:
+- ✅ One-click operation
+- ✅ Timestamped commit messages
+- ✅ Error checking at each step
+- ✅ Success/failure feedback
+
+## 📝 Usage Scenarios
+
+### During Active Development:
+1. Start auto-sync: `.\auto-sync.ps1`
+2. Work on your code normally
+3. Changes automatically sync to GitHub every 30 seconds
+
+### For Quick Updates:
+1. Make your changes
+2. Double-click `quick-sync.bat`
+3. Changes immediately sync to GitHub
+
+### Custom Commit Messages:
+1. Press `Ctrl+Shift+P` in VS Code
+2. Run "Custom Commit & Push" task
+3. Enter your custom commit message
+
+## ⚙️ Configuration
+
+### Change Auto-Sync Interval:
 ```powershell
-.\sync.ps1 "Your commit message"
+.\auto-sync.ps1 -DelaySeconds 60  # Check every 60 seconds
 ```
 
-### Batch File for Windows
-Create a file called `sync.bat` for one-click syncing:
-```batch
-@echo off
-git add .
-git commit -m "Portfolio update - %date% %time%"
-git push origin main
-echo Portfolio synced to GitHub successfully!
-pause
+### Custom Commit Message:
+```powershell
+.\auto-sync.ps1 -CommitMessage "Feature: New contact form"
 ```
 
-## VS Code Integration
+## 🔧 Troubleshooting
 
-### Method 1: Using VS Code Source Control
-1. Open VS Code
-2. Go to Source Control tab (Ctrl+Shift+G)
-3. Stage changes by clicking the "+" next to files
-4. Enter commit message
-5. Click "Commit" then "Sync Changes"
-
-### Method 2: VS Code Terminal
-1. Open terminal in VS Code (Ctrl+`)
-2. Run: `git add . && git commit -m "Update" && git push`
-
-## GitHub Desktop (GUI Option)
-
-If you prefer a visual interface:
-1. Download GitHub Desktop
-2. Clone your repository
-3. Make changes in your code editor
-4. Use GitHub Desktop to commit and push changes
-
-## Current Repository Status
-
-✅ **Repository**: https://github.com/dhruv552/PortfolioWebsite.git  
-✅ **Branch**: main  
-✅ **Remote**: origin  
-✅ **Last Sync**: Portfolio finalization with analysis report  
-
-## Workflow Recommendations
-
-### Daily Development Workflow:
-1. Make your changes in code
-2. Test locally: `npm run dev`
-3. Quick sync: `git add . && git commit -m "Description of changes" && git push`
-
-### Before Major Changes:
-1. Create a backup branch: `git checkout -b backup-$(date +%Y%m%d)`
-2. Switch back to main: `git checkout main`
-3. Make your changes
-4. Sync as usual
-
-### Emergency Recovery:
-If something goes wrong, you can always:
-```bash
-git log --oneline  # See recent commits
-git reset --hard HEAD~1  # Undo last commit (if needed)
+### PowerShell Execution Policy Error:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
-## Automated Deployment
+### Git Authentication Issues:
+- Ensure you're logged into GitHub in VS Code
+- Or setup SSH keys for authentication
 
-Since your portfolio is connected to GitHub, you can set up automatic deployment:
+### Permission Issues:
+- Run VS Code as Administrator if needed
+- Check file permissions in the project folder
 
-### Option 1: Netlify (Recommended)
-1. Connect your GitHub repo to Netlify
-2. Every push to `main` automatically deploys
-3. Set build command: `npm run build`
-4. Set publish directory: `dist`
+## 🎯 Best Practices
 
-### Option 2: Vercel
-1. Import your GitHub repository
-2. Automatic deployments on every push
-3. Zero configuration needed
+1. **Use Auto-Sync during active development** - Set it and forget it
+2. **Use Quick-Sync for important updates** - When you want immediate sync
+3. **Use Custom Commit for releases** - When you need descriptive messages
+4. **Check Git Status regularly** - To see what will be committed
 
-## Quick Reference Commands
+## 📋 Commands Reference
 
-| Action | Command |
-|--------|---------|
-| Check status | `git status` |
-| Quick sync | `git add . && git commit -m "Update" && git push` |
-| View history | `git log --oneline` |
-| Create branch | `git checkout -b new-branch-name` |
-| Switch branch | `git checkout main` |
-| Pull latest | `git pull origin main` |
+| Command | Description |
+|---------|-------------|
+| `.\auto-sync.ps1` | Start automatic sync |
+| `.\quick-sync.bat` | Manual one-click sync |
+| `git status` | Check current changes |
+| `git log --oneline -5` | See recent commits |
 
 ---
 
-**Next Steps:**
-1. Choose your preferred sync method above
-2. Set up automatic deployment (Netlify recommended)
-3. Start making updates - they'll automatically sync to GitHub!
+**Note:** All scripts automatically commit to the `main` branch. Make sure this is your desired branch before using.
