@@ -32,10 +32,12 @@ if ($changes) {
         if ($openBrowser -eq 'y' -or $openBrowser -eq 'Y') {
             Start-Process "https://github.com/dhruv552/PortfolioWebsite"
         }
-    } else {
+    }
+    else {
         Write-Host "❌ Error occurred during push. Please check your internet connection and GitHub credentials." -ForegroundColor Red
     }
-} else {
+}
+else {
     Write-Host "ℹ️  No changes to sync." -ForegroundColor Yellow
 }
 
