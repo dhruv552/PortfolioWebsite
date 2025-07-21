@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%; /* Dark background */
+    --foreground: 210 40% 98%; /* Light text */
+
+    --card: 0 0% 15%; /* Dark cards */
+    --card-foreground: 210 40% 98%; /* Light text on cards */
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%; /* Blue primary */
+    --primary-foreground: 0 0% 100%; /* White text on blue */
+
+    --secondary: 188 95% 68%; /* Cyan secondary */
+    --secondary-foreground: 0 0% 0%; /* Black text on cyan */
+
+    --muted: 0 0% 10%; /* Dark muted */
+    --muted-foreground: 215 20% 65%; /* Muted text */
+
+    --accent: 160 84% 39%; /* Emerald accent */
+    --accent-foreground: 0 0% 100%; /* White text on emerald */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 20%; /* Subtle border */
+    --input: 0 0% 20%; /* Dark input */
+    --ring: 217 91% 60%; /* Blue ring */
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 0 0% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 188 95% 68%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
