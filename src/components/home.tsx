@@ -239,7 +239,7 @@ function Home() {
               Innovative solutions for a sustainable future
             </p>
           </motion.div>
-          <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
             {projects.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -247,6 +247,7 @@ function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
+                className="h-full"
               >
                 <ProjectCard {...project} />
               </motion.div>

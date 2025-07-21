@@ -1,4 +1,3 @@
-import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -60,9 +59,9 @@ const ProjectCard = ({
   };
 
   return (
-    <Card className="w-full max-w-md bg-dark-card border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-accent-blue/20 hover:border-accent-blue/50">
+    <Card className="w-full h-[520px] bg-dark-card border-gray-700 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-accent-blue/20 hover:border-accent-blue/50 flex flex-col">
       {image && (
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-48 overflow-hidden flex-shrink-0">
           <img
             src={image}
             alt={title}
@@ -70,56 +69,62 @@ const ProjectCard = ({
           />
         </div>
       )}
-      <CardHeader>
-        <div className="flex justify-between items-start">
-          <CardTitle className="text-xl font-bold text-text-light">
-            {title}
-          </CardTitle>
-          <span className="text-sm text-text-muted">{date}</span>
-        </div>
-        <CardDescription className="mt-2 text-text-muted">
-          {description}
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="flex flex-wrap gap-2 mt-2">
-          {techStack.map((tech, index) => (
-            <Badge
-              key={index}
-              variant="secondary"
-              className={`${tech.color || getBadgeColor(tech.name)} text-white`}
+      <div className="flex flex-col flex-1 p-0">
+        <CardHeader className="pb-3">
+          <div className="flex justify-between items-start gap-2">
+            <CardTitle className="text-xl font-bold text-text-light leading-tight">
+              {title}
+            </CardTitle>
+            <span className="text-sm text-text-muted whitespace-nowrap">
+              {date}
+            </span>
+          </div>
+          <CardDescription className="mt-2 text-text-muted text-sm leading-relaxed h-[60px] overflow-hidden">
+            {description}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex-1 pt-0 pb-3">
+          <div className="flex flex-wrap gap-1.5">
+            {techStack.map((tech, index) => (
+              <Badge
+                key={index}
+                variant="secondary"
+                className={`${tech.color || getBadgeColor(tech.name)} text-white text-xs px-2 py-1`}
+              >
+                {tech.name}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
+        <CardFooter className="pt-0 mt-auto">
+          <div className="flex gap-2 w-full">
+            <Button
+              variant="outline"
+              size="sm"
+              className="flex items-center gap-2 border-gray-600 text-text-light hover:bg-dark-surface hover:border-accent-blue flex-1"
+              asChild
             >
-              {tech.name}
-            </Badge>
-          ))}
-        </div>
-      </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button
-          variant="outline"
-          size="sm"
-          className="flex items-center gap-2 border-gray-600 text-text-light hover:bg-dark-surface hover:border-accent-blue"
-          asChild
-        >
-          <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-            <Github className="h-4 w-4" />
-            GitHub
-          </a>
-        </Button>
-        {liveUrl && (
-          <Button
-            variant="default"
-            size="sm"
-            className="flex items-center gap-2 bg-accent-cyan hover:bg-accent-cyan/90 text-dark-bg"
-            asChild
-          >
-            <a href={liveUrl} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="h-4 w-4" />
-              Live Demo
-            </a>
-          </Button>
-        )}
-      </CardFooter>
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                <Github className="h-4 w-4" />
+                GitHub
+              </a>
+            </Button>
+            {liveUrl && (
+              <Button
+                variant="default"
+                size="sm"
+                className="flex items-center gap-2 bg-accent-cyan hover:bg-accent-cyan/90 text-dark-bg flex-1"
+                asChild
+              >
+                <a href={liveUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="h-4 w-4" />
+                  Live Demo
+                </a>
+              </Button>
+            )}
+          </div>
+        </CardFooter>
+      </div>
     </Card>
   );
 };
