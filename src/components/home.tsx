@@ -12,6 +12,7 @@ import ProjectCard from "./ProjectCard";
 import SkillsTimeline from "./SkillsTimeline";
 import ContactForm from "./ContactForm";
 import { useState } from "react";
+import React from "react";
 
 function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -189,11 +190,21 @@ function Home() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   size="lg"
-                  className="bg-accent-blue hover:bg-accent-blue/90 text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/25 hover:scale-105"
+                  className="jumping-button bg-accent-blue hover:bg-accent-blue/90 text-white rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/25"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  <Mail className="w-4 h-4 mr-2" />
-                  Get In Touch
+                  <Mail className="w-4 h-4 mr-2 jump-icon" />
+                  <span className="jump-text">
+                    {"Get In Touch".split("").map((letter, index) => (
+                      <span 
+                        key={index}
+                        className={letter === " " ? "letter" : "letter"}
+                        style={{ "--delay": `${index * 0.05}s` } as React.CSSProperties}
+                      >
+                        {letter === " " ? "\u00A0" : letter}
+                      </span>
+                    ))}
+                  </span>
                 </Button>
                 <Button
                   variant="outline"
