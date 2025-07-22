@@ -4,58 +4,80 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
+    --background: 0 0% 4%;
+    /* Dark background */
+    --foreground: 210 40% 98%;
+    /* Light text */
+
+    --card: 0 0% 15%;
+    /* Dark cards */
+    --card-foreground: 210 40% 98%;
+    /* Light text on cards */
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    /* Blue primary */
+    --primary-foreground: 0 0% 100%;
+    /* White text on blue */
+
+    --secondary: 188 95% 68%;
+    /* Cyan secondary */
+    --secondary-foreground: 0 0% 0%;
+    /* Black text on cyan */
+
+    --muted: 0 0% 10%;
+    /* Dark muted */
+    --muted-foreground: 215 20% 65%;
+    /* Muted text */
+
+    --accent: 160 84% 39%;
+    /* Emerald accent */
+    --accent-foreground: 0 0% 100%;
+    /* White text on emerald */
+
+    --destructive: 0 62.8% 30.6%;
+    /* Dark red for destructive actions */
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    /* Light text on destructive */
+
+    --border: 0 0% 20%;
+    /* Dark borders */
+    --input: 0 0% 20%;
+    /* Dark input backgrounds */
+    --ring: 217 91% 60%;
+    /* Blue focus ring */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 0 0% 4%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+
+    --card: 0 0% 15%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+
+    --popover: 0 0% 15%;
     --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 188 95% 68%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 217 91% 60%;
   }
 }
 
@@ -63,59 +85,8 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
-}
-
-/* Jumping Button Animation */
-@keyframes jumpUp {
-  0% {
-    transform: translateY(0);
-    text-shadow: 0 0 0 rgba(59, 130, 246, 0);
-  }
-  40% {
-    transform: translateY(-6px);
-    text-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
-  }
-  100% {
-    transform: translateY(0);
-    text-shadow: 0 0 0 rgba(59, 130, 246, 0);
-  }
-}
-
-@keyframes wave {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-  100% { transform: translateY(0); }
-}
-
-.jumping-button {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.jumping-button:hover .jump-text {
-  animation: jumpUp 0.6s ease-out;
-}
-
-.jumping-button:hover .jump-icon {
-  animation: wave 0.4s ease-in-out 0.1s;
-}
-
-/* Enhanced button glow effect */
-.jumping-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-}
-
-/* Wave effect for individual letters */
-.jumping-button:hover .letter {
-  animation: wave 0.5s ease-in-out var(--delay);
-}
-
-.letter {
-  display: inline-block;
-  transition: transform 0.1s ease;
 }
