@@ -94,7 +94,7 @@ const SkillsTimeline = ({
       title: "B.Tech in Computer Science Engineering",
       organization: "Lakshmi Narain College of Technology, Bhopal",
       period: "2022 - 2026 (Expected)",
-      description: "CGPA: 6.91/10",
+      description: "CGPA: 7.11/10",
       type: "education",
     },
     {
