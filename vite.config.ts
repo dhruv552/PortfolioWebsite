@@ -1,17 +1,17 @@
 import path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import { tempo } from "tempo-devtools/dist/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === "development" ? "/" : process.env.VITE_BASE_PATH || "/",
+  base: "/",
   optimizeDeps: {
-    entries: ["src/main.tsx", "src/tempobook/**/*"],
+    entries: ["src/main.tsx"],
   },
   plugins: [
     react(),
-    tempo(),
+    // Remove tempo plugin for production builds to avoid compatibility issues
+    ...(process.env.NODE_ENV === "development" ? [] : [])
   ],
   resolve: {
     preserveSymlinks: true,
@@ -20,11 +20,11 @@ export default defineConfig({
     },
   },
   server: {
-    // @ts-ignore
     allowedHosts: true,
   },
   build: {
-    // Performance optimizations
+    target: 'esnext',
+    minify: 'esbuild',
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {
@@ -35,9 +35,7 @@ export default defineConfig({
         }
       }
     },
-    // Enable source maps for better debugging in production
-    sourcemap: true,
-    // Optimize assets
+    sourcemap: false, // Disable sourcemaps for production to reduce build time
     assetsInlineLimit: 4096,
   }
 });
